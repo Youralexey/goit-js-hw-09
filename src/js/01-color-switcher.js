@@ -1,11 +1,12 @@
+import '../css/common.css';
 
 let intervalId = null;
 
 const startBtn = document.querySelector('[data-action="start"]');
 const stopBtn = document.querySelector('[data-action="stop"]');
 
-startBtn = document.addEventListener('click', onClickBtnStart);
-stopBtn = document.addEventListener('click', onClickBtnStop);
+startBtn.addEventListener("click", onClickBtnStart);
+stopBtn.addEventListener("click", onClickBtnStop);
 
 function onClickBtnStart() {
   startBtn.disabled = true;
