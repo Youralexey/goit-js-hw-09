@@ -1,13 +1,13 @@
 
 
-const startBtn = document.querySelector('[data-start]');
-const stopBtn = document.querySelector('[data-stop]');
+const startBtn1 = document.querySelector('[data-start]');
+const stopBtn1 = document.querySelector('[data-stop]');
 
-startBtn.addEventListener('click', onClickBtnStart);
-stopBtn.addEventListener('click', onClickBtnStop);
+startBtn1.addEventListener('click', onClickBtnStart);
+stopBtn1.addEventListener('click', onClickBtnStop);
 
 function onClickBtnStart() {
-  startBtn.disabled = true;
+  startBtn1.disabled = true;
   intervalId = setInterval(() => {
       const selectedColor = getRandomHexColor();
     document.body.style.backgroundColor = selectedColor;
@@ -15,7 +15,7 @@ function onClickBtnStart() {
 }
 
 function onClickBtnStop() {
-  startBtn.disabled = false;
+  startBtn1.disabled = false;
   clearInterval(intervalId);
 }
 
