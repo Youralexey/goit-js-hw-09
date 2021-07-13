@@ -5,12 +5,10 @@ import Swal from 'sweetalert2'
 
 const inputEl = document.querySelector('#date-selector');
 const timerBtn = document.querySelector('[data-start]');
-const btnStop = document.querySelector('[data-stop]');
+
 
 timerBtn.addEventListener('click', handleTimerStart);
-btnStop.addEventListener('click', () => {
-    
-})
+
 
 
 function getTargetDate() {
