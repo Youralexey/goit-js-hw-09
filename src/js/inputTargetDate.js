@@ -1,22 +1,27 @@
-import Timer from './timer'
+import Timer from './timer';
 
-import Swal from 'sweetalert2'
-
+import Swal from 'sweetalert2';
 
 const inputEl = document.querySelector('#date-selector');
 const timerBtn = document.querySelector('[data-start]');
 
-
 timerBtn.addEventListener('click', handleTimerStart);
+timerBtn.disabled = true
+inputEl.addEventListener('input', function (event) {
+
+  if(event.target.value){
+  timerBtn.disabled = false;
+} else {
+  timerBtn.disabled = true
+  }
+});
 
 
 
 function getTargetDate() {
-    console.log(inputEl.value.split('-').join(','))
-    return inputEl.value.split('-').join(',')
-    
+  console.log(inputEl.value.split('-').join(','));
+  return inputEl.value.split('-').join(',');
 }
-
 
 function handleTimerStart() {
   const targetDate = getTargetDate();

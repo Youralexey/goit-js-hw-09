@@ -11,6 +11,7 @@ export default class Timer {
             hours: document.querySelector(`${this.selector} [data-hours]`),
             minutes: document.querySelector(`${this.selector} [data-minutes]`),
             seconds: document.querySelector(`${this.selector} [data-seconds]`),
+            inputEl: document.getElementById('date-selector')
         }
     }
 
@@ -33,10 +34,10 @@ export default class Timer {
 
         },1000)
     }
-    timerStop() {
-        clearInterval(this.intervalId)
-        console.log(this.intervalId)
-    }
+    // timerStop() {
+    //     clearInterval(this.intervalId)
+    //     console.log(this.intervalId)
+    // }
 
     renderTimerData({ days, hours, minutes, seconds }) {
         this.refs.days.textContent = days;
