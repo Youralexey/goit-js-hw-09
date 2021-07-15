@@ -21,6 +21,7 @@ export default class Timer {
         return targetDate - currenDate;
     }
     
+    
     timerStart() {
         this.intervalId = setInterval(() => {
             const diffMs = this.getMs();
@@ -34,10 +35,7 @@ export default class Timer {
 
         },1000)
     }
-    // timerStop() {
-    //     clearInterval(this.intervalId)
-    //     console.log(this.intervalId)
-    // }
+
 
     renderTimerData({ days, hours, minutes, seconds }) {
         this.refs.days.textContent = days;
@@ -76,5 +74,4 @@ function convertMs(ms) {
     };
 
 // const timer = new Timer({ selector: "#timer", targetDate: "2021, 07, 12" });
-
 

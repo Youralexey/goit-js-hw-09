@@ -7,7 +7,7 @@ const delay = ms => {
   return Promise.resolve(ms)
 };
 
-const logger = time => console.log(`Fulfilled after ${time}ms`);
+const logger = time => setTimeout(() => { console.log(`Resolved after ${time}ms`) }, time);
 
 // Tests
 
@@ -29,7 +29,7 @@ const toggleUserState = (allUsers, username) => {
     user.name === username ? { ...user, active: !user.active } : user
   );
 
-  return Promisw.resolve(updatedUsers);
+  return Promise.resolve(updatedUsers);
 };
 const logger1 = updatedUsers => console.log(updatedUsers);
 
@@ -52,26 +52,27 @@ const randomIntegerFromInterval = (min, max) => {
 const makeTransaction = (transaction) => {
   const delay = randomIntegerFromInterval(200, 500);
 
-  return new Promise((resolve, regect) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       const canProcess = Math.random() > 0.3;
 
       if (canProcess) {
-        onSuccess({ id: transaction.id, time: delay });
+        resolve([transaction.id, delay]);
       } else {
-        onError(transaction.id);
+        reject(transaction.id);
       }
     }, delay);
   });
 };
 
-const logSuccess = ({ id, time }) => {
-  console.log(`Transaction ${id} processed in ${time}ms`);
+const logSuccess = (arr) => {
+  console.log(`Transaction ${arr[0]} processed in ${arr[1]}ms`);
 };
 
 const logError = id => {
   console.warn(`Error processing transaction ${id}. Please try again later.`);
 };
+
 
 // Currently the function works like this
 // makeTransaction({ id: 70, amount: 150 }, logSuccess, logError);
