@@ -11,7 +11,7 @@ export default class Timer {
             hours: document.querySelector(`${this.selector} [data-hours]`),
             minutes: document.querySelector(`${this.selector} [data-minutes]`),
             seconds: document.querySelector(`${this.selector} [data-seconds]`),
-            inputEl: document.getElementById('date-selector')
+            inputEl: document.getElementById('date-selector'),
         }
     }
 

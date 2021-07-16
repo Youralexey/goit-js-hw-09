@@ -6,22 +6,24 @@ const inputEl = document.querySelector('#date-selector');
 const timerBtn = document.querySelector('[data-start]');
 
 timerBtn.addEventListener('click', handleTimerStart);
-timerBtn.disabled = true
-inputEl.addEventListener('input', function (event) {
+timerBtn.disabled = true;
 
-  if(event.target.value){
-  timerBtn.disabled = false;
-} else {
-  timerBtn.disabled = true
-  }
+
+inputEl.addEventListener('change', function () {
+  const currentCalValue = inputEl.valueAsNumber
+  
+  if (currentCalValue > Date.now()) {
+    timerBtn.disabled = false;
+  } else {
+    timerBtn.disabled = true;
+  };
 });
-
 
 
 function getTargetDate() {
   console.log(inputEl.value.split('-').join(','));
   return inputEl.value.split('-').join(',');
-}
+};
 
 function handleTimerStart() {
   const targetDate = getTargetDate();
@@ -36,7 +38,7 @@ function handleTimerStart() {
     });
 
     return;
-  }
+  };
 
   timer.timerStart();
-}
+};
