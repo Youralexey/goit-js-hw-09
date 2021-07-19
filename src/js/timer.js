@@ -14,6 +14,7 @@ export default class Timer {
             inputEl: document.getElementById('date-selector'),
         }
     }
+    
 
     getMs() {
         const targetDate = Date.parse(this.targetDate);

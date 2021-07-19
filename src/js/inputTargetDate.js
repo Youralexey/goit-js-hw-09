@@ -16,6 +16,13 @@ inputEl.addEventListener('change', function () {
     timerBtn.disabled = false;
   } else {
     timerBtn.disabled = true;
+     console.log('Please choose a date in the future');
+    Swal.fire({
+      title: 'Error!',
+      text: 'Please choose a date in the future',
+      icon: 'error',
+      confirmButtonText: 'Ok',
+    });
   };
 });
 
@@ -28,17 +35,6 @@ function getTargetDate() {
 function handleTimerStart() {
   const targetDate = getTargetDate();
   const timer = new Timer({ selector: '#timer', targetDate });
-  if (timer.getMs() <= 0) {
-    console.log('Please choose a date in the future');
-    Swal.fire({
-      title: 'Error!',
-      text: 'Please choose a date in the future',
-      icon: 'error',
-      confirmButtonText: 'Ok',
-    });
-
-    return;
-  };
 
   timer.timerStart();
 };
